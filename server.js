@@ -1,8 +1,11 @@
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const express = require("express");
 const path = require('path')
+const cors = require('cors')
 const app = express();
 const port = 4741;
+
+app.use(cors())
 
 app.get("/", async (req, res) => {
   res.status(200).sendFile(path.join(__dirname, '/index.html'))
