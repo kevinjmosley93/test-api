@@ -9,7 +9,7 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/posts", async (req, res) => {
-  const fetchRes = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const fetchRes = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=10");
   const data = await fetchRes.json();
 //   console.log(data);
   res.status(200).json(data);
