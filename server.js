@@ -36,7 +36,7 @@ app.get("/users/:id", async (req, res) => {
   res.status(200).json(data);
 });
 app.get("/users/:id/todos", async (req, res) => {
-  const fetchRes = await fetch(`https://jsonplaceholder.typicode.com/users/${req.params.id}/posts`);
+  const fetchRes = await fetch(`https://jsonplaceholder.typicode.com/users/${req.params.id}/todos`);
   const data = await fetchRes.json();
 //   console.log(data);
   res.status(200).json(data);
