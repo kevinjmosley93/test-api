@@ -24,7 +24,7 @@ app.get("/projects", async (req, res) => {
   res.status(200).json(data);
 });
 app.get("/skills", async (req, res) => {
-  const fetchRes = await fetch("https://kevinjmosley.com/api/get-skilss");
+  const fetchRes = await fetch("https://kevinjmosley.com/api/get-skills");
   const data = await fetchRes.json();
 //   console.log(data);
   res.status(200).json(data);
