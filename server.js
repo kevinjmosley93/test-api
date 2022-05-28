@@ -76,6 +76,7 @@ app.get("/users/:id/todos", async (req, res) => {
   //   console.log(data);
   res.status(200).json(data);
 });
+
 app.post("/agency", async (req, res) => {
   const { name, email, phone, subject, message } = await req.body;
 
@@ -86,6 +87,17 @@ app.post("/agency", async (req, res) => {
     subject,
     message,
   };
+  console.log("data:", data);
+  res.status(200).json(data);
+});
+
+app.post("/services", async (req, res) => {
+  const { email } = await req.body;
+
+  const data = {
+    email
+  };
+  
   console.log("data:", data);
   res.status(200).json(data);
 });
