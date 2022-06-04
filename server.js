@@ -1,4 +1,4 @@
-const { faqs } = require('./data')
+const { faqs } = require("./data");
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 const express = require("express");
@@ -7,7 +7,6 @@ const path = require("path");
 const cors = require("cors");
 const app = express();
 const port = 4741;
-
 
 app.use(cors());
 app.use(bodyParser.json()); // for parsing application/json
@@ -79,10 +78,25 @@ app.get("/users/:id/todos", async (req, res) => {
   res.status(200).json(data);
 });
 
-//  FAQS 
+//  FAQS
 app.get("/faqs", async (req, res) => {
-    // console.log(faqs);
+  // console.log(faqs);
   res.status(200).json(faqs);
+});
+
+app.get("/faqs/:id", async (req, res) => {
+  const foundFaq = faqs.find((faq) => {
+    // console.log("test", faq.id, parseInt(req.params.id));
+    if (faq.id === parseInt(req.params.id)) return faq;
+  });
+
+  // console.log("foundfaq is ========>", foundFaq);
+  
+  const msg = { msg: `no faqs found with id ${req.params.id}` };
+
+  if (parseInt(req.params.id) >= faqs.length) return res.status(404).json(msg);
+
+  return res.status(200).json(foundFaq);
 });
 
 app.post("/agency", async (req, res) => {
@@ -103,9 +117,9 @@ app.post("/services", async (req, res) => {
   const { email } = await req.body;
 
   const data = {
-    email
+    email,
   };
-  
+
   console.log("data:", data);
   res.status(200).json(data);
 });
