@@ -1,3 +1,4 @@
+const { faqs } = require('./data')
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
 const express = require("express");
@@ -6,6 +7,7 @@ const path = require("path");
 const cors = require("cors");
 const app = express();
 const port = 4741;
+
 
 app.use(cors());
 app.use(bodyParser.json()); // for parsing application/json
@@ -75,6 +77,12 @@ app.get("/users/:id/todos", async (req, res) => {
   const data = await fetchRes.json();
   //   console.log(data);
   res.status(200).json(data);
+});
+
+//  FAQS 
+app.get("/faqs", async (req, res) => {
+    // console.log(faqs);
+  res.status(200).json(faqs);
 });
 
 app.post("/agency", async (req, res) => {
