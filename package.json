@@ -1,14 +1,14 @@
 {
   "name": "test-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Express API that can be used to test other APIs and render data",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon ./server.js",
     "start": "node ./server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kevin J Mosley",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

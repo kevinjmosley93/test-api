@@ -21,12 +21,14 @@ app.get("/blog", async (req, res) => {
   //   console.log(data);
   res.status(200).json(data);
 });
+
 app.get("/projects", async (req, res) => {
   const fetchRes = await fetch("https://kevinjmosley.com/api/get-projects");
   const data = await fetchRes.json();
   //   console.log(data);
   res.status(200).json(data);
 });
+
 app.get("/skills", async (req, res) => {
   const fetchRes = await fetch("https://kevinjmosley.com/api/get-skills");
   const data = await fetchRes.json();
@@ -69,6 +71,7 @@ app.get("/users/:id", async (req, res) => {
   //   console.log(data);
   res.status(200).json(data);
 });
+
 app.get("/users/:id/todos", async (req, res) => {
   const fetchRes = await fetch(
     `https://jsonplaceholder.typicode.com/users/${req.params.id}/todos?_limit=5`
@@ -91,7 +94,7 @@ app.get("/faqs/:id", async (req, res) => {
   });
 
   // console.log("foundfaq is ========>", foundFaq);
-  
+
   const msg = { msg: `no faqs found with id ${req.params.id}` };
 
   if (parseInt(req.params.id) >= faqs.length) return res.status(404).json(msg);
@@ -125,5 +128,5 @@ app.post("/services", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Example app listening on port =====> ${port}`);
 });
