@@ -25,6 +25,7 @@ const faqs = [
         answer: 'this is answer 5'
     }
 ]
+
 module.exports = {
     faqs
 }
